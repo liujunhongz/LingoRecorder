@@ -41,4 +41,8 @@ public class DemoListActivity extends AppCompatActivity {
         startActivity(new Intent(this, VolumeDemonstrateActivity.class));
     }
 
+    public void aacDemonstrate(View view) {
+        startActivity(new Intent(this, AacDemonstrateActivity.class));
+    }
+
 }

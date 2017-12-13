@@ -18,11 +18,14 @@
 	<string name="start_scorer">开始打分</string>
 	<string name="custom_processors_demonstrate">自定义处理器演示</string>
 	<string name="flac_demonstrate">硬编码 Flac 演示</string>
+	<string name="aac_demonstrate">硬编码 Aac 演示</string>
 	<string name="across_process_processor_demonstrate">跨进程处理器演示</string>
 	<string name="processor_1_title">Processor 1 : %s</string>
 	<string name="processor_2_title">Processor 2 : %s</string>
 	<string name="flac_unsupport">抱歉, 该机型不支持 Flac 编码器</string>
+	<string name="aac_unsupport">抱歉, 该机型不支持 Aac 编码</string>
 	<string name="sdcard_test_flac">/sdcard/test.flac</string>
+	<string name="sdcard_test_aac">/sdcard/test.aac</string>
 	<string name="please_read">请读：</string>
 	<string name="scorer_sentence">I will study english very hard.</string>
 	<string name="scorer_result">打分结果：%s</string>

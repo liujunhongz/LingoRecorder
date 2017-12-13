@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.liulishuo.engzo.lingorecorder.demo.activity.FlacDemonstrateActivity">
+
+    <TextView
+        android:id="@+id/tv_unsuport_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/aac_unsupport"
+        android:textColor="@android:color/black"
+        tools:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/view_demonstrate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/record_output_address"
+            />
+
+        <EditText
+            android:id="@+id/et_output_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:text="@string/sdcard_test_aac"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/btn_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/start_record"
+            android:textAllCaps="false"
+            />
+
+        <TextView
+            android:id="@+id/record_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/record_duration"
+            android:textColor="@android:color/black"
+            />
+
+        <TextView
+            android:id="@+id/record_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/record_size"
+            android:textColor="@android:color/black"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,8 +2,10 @@ package com.liulishuo.engzo.lingorecorder.demo.activity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import com.liulishuo.engzo.lingorecorder.demo.Utils;
 import com.liulishuo.engzo.lingorecorder.processor.AudioProcessor;
 import com.liulishuo.engzo.lingorecorder.volume.OnVolumeListener;
 
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -59,10 +62,22 @@ public class RecordDemonstrateActivity extends RecordActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.setDataAndType(Uri.parse("file://" + outputFile), "audio/*");
-                startActivity(intent);
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+                    //通过FileProvider创建一个content类型的Uri
+                    Uri uri = FileProvider.getUriForFile(RecordDemonstrateActivity.this, getPackageName() + ".fileprovider", new File(outputFile));
+                    Intent intent = new Intent();
+                    //添加这一句表示对目标应用临时授权该Uri所代表的文件
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    intent.setAction(Intent.ACTION_VIEW);
+                    //将拍取的照片保存到指定URI
+                    intent.setDataAndType(uri, "audio/*");
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.setDataAndType(Uri.parse("file://" + outputFile), "audio/*");
+                    startActivity(intent);
+                }
             }
         });
 
