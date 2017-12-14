@@ -12,7 +12,7 @@ public class RecorderProperty {
     private int bitsPerSample;
 
     public RecorderProperty() {
-        setSampleRate(44100);
+        setSampleRate(48000);
         setChannels((short) 2);
         setBitsPerSample(16);
     }

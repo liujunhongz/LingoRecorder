@@ -50,16 +50,16 @@ public class AndroidAacProcessor implements AudioProcessor {
         String mime = "audio/mp4a-latm";
         String mediaType = "OMX.google.aac.encoder";
         MediaFormat format = new MediaFormat();
-        int minBufferSize = 2 * AudioRecord.getMinBufferSize(44100, AudioFormat.CHANNEL_IN_STEREO, AudioFormat.ENCODING_PCM_16BIT);
+        int minBufferSize = 2 * AudioRecord.getMinBufferSize(48000, AudioFormat.CHANNEL_IN_STEREO, AudioFormat.ENCODING_PCM_16BIT);
         //数据类型
         format.setString(MediaFormat.KEY_MIME, mime);
         format.setInteger(MediaFormat.KEY_CHANNEL_COUNT, 2);
-        format.setInteger(MediaFormat.KEY_SAMPLE_RATE, 44100);
+        format.setInteger(MediaFormat.KEY_SAMPLE_RATE, 48000);
         format.setInteger(MediaFormat.KEY_BIT_RATE, 32 * 1024);
         format.setInteger(MediaFormat.KEY_AAC_PROFILE, MediaCodecInfo.CodecProfileLevel.AACObjectLC);
         format.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, minBufferSize);
-        codec = MediaCodec.createEncoderByType(mime);
-//        codec = MediaCodec.createByCodecName(mediaType);
+//        codec = MediaCodec.createEncoderByType(mime);
+        codec = MediaCodec.createByCodecName(mediaType);
         codec.configure(
                 format,
                 null /* surface */,
@@ -166,7 +166,7 @@ public class AndroidAacProcessor implements AudioProcessor {
     public void addADTStoPacket(byte[] packet, int packetLen) {
         int profile = 2; // AAC LC
         // 39=MediaCodecInfo.CodecProfileLevel.AACObjectELD;
-        int freqIdx = 4; // 44.1KHz
+        int freqIdx = 3; // 44.1KHz
         int chanCfg = 2; // CPE
 
         // fill in ADTS data
